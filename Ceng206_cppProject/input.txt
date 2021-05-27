@@ -1,0 +1,6 @@
+Ekmek,2,24,true,true
+KelKartal,3,10,true,false
+Besiktas,10,42,true,false
+Kartalcik,1,15.5,true,true
+Keskin Gaga,5,22.8,true,true
+Rock,999,15000,false,false
