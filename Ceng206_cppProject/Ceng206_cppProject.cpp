@@ -33,7 +33,7 @@ bool boolParse(string input) {
         return false;
 }
 
-
+//sorting vector
 void sortVector(vector<Eagle*> &vectorEagle) {
     Eagle* temp;
     for (int i = 0; i < vectorEagle.size(); i++) {
