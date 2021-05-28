@@ -26,7 +26,7 @@ vector<string> split( string line){
 }
 
 //boolean parser
-bool boolParse(string input) {
+inline bool boolParse(string input = NULL) {
     return input._Equal("true");
    
 }
