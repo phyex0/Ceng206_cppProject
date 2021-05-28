@@ -1,3 +1,5 @@
+﻿// Halit Burak Yeşildal 18050111043
+
 #include<iostream>
 #include <string>
 #include "Eagle.h"
@@ -54,7 +56,12 @@ void Eagle::fly() {
 void Eagle::printDeatils() {
 	string petC = getIsPet() ? "Yes" : "No";
 	string flyC = getisFlying() ? "Yes" : "No";
-	cout << "Name: " + getName() + "\nAge: " + to_string(getAge()) + "\nWeight: " + to_string(getWeight()) + "\nIt's a pet? : " +petC+"\nIt's flying? : "+flyC+"\n*****************************" << endl;
+	cout << "Name: " + getName() + "\nAge: " + to_string(getAge()) << endl;
+	cout.precision(10);
+	cout << "Weight: ";
+	cout<< getWeight();
+
+	cout<<"\nIt's a pet? : " + petC + "\nIt's flying? : " + flyC + "\n*****************************" << endl;
 }
 
 double Eagle::operator + (Eagle &e) {
@@ -65,12 +72,8 @@ int Eagle::operator - (Eagle &e) {
 	return e.getAge()+ getAge();
 }
 
-bool Eagle::operator< (Eagle& e) {
-	if (this->getName().compare(e.getName()) < 0)
-		return true;
-	else
-		return false;
-
-
+bool Eagle::operator < (Eagle& e) {
+	return (this->getName().compare(e.getName()) < 0);
+		
 }
 

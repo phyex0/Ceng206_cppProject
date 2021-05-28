@@ -1,4 +1,4 @@
-// Ceng206_cppProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// Halit Burak Yeşildal 18050111043
 
 #include <iostream>
 #include <vector>
@@ -10,7 +10,7 @@ using namespace std;
 
 
 //split method is created return type is a vector<string>
-vector<string> split( string line){
+vector<string> split( string line = NULL){
     int size = line.length(),begin=0;
   
     vector<string> splitted;
@@ -65,6 +65,7 @@ int main()
     {
         ifstream file;
         file.open("input.txt");
+        //if there is an error related with the file it'll throw it.
         if (!file.is_open())
             throw exception();
 
@@ -80,11 +81,8 @@ int main()
         }
         file.close();
 
-        sortVector(eagleVector);
-
-        for (Eagle* e : eagleVector)
-            e->printDeatils();
        
+            
             
     }
     catch (const std::exception& e)
@@ -94,12 +92,26 @@ int main()
     }
 
 
+
    
-    
-    
+    sortVector(eagleVector);
 
-  
+    //proof of the sorting and details.
+    for (Eagle* e : eagleVector)
+        e->printDeatils();
 
+
+    //proof of the operator overloading.      
+    for (int i = 0; i < eagleVector.size() - 1; i++) {
+
+        cout << "The sum of weights : " + eagleVector[i]->getName() + " and " + eagleVector[i + 1]->getName() + " is :" << endl;
+        cout.precision(10);
+        cout << *eagleVector[i] + *eagleVector[i + 1];
+
+
+        cout << "\nThe sum of ages : " + eagleVector[i]->getName() + " and " + eagleVector[i + 1]->getName() + " is :" << endl;
+        cout << to_string(*eagleVector[i] - *eagleVector[i + 1]) << endl;
+    }
 
 
 
