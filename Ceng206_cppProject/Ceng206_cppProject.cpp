@@ -111,6 +111,7 @@ int main()
 
         cout << "\nThe sum of ages : " + eagleVector[i]->getName() + " and " + eagleVector[i + 1]->getName() + " is :" << endl;
         cout << to_string(*eagleVector[i] - *eagleVector[i + 1]) << endl;
+        cout << "#######" << endl;
     }
 
 
