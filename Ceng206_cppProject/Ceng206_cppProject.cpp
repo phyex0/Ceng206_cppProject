@@ -65,33 +65,32 @@ int main()
     {
         ifstream file;
         file.open("input.txt");
-        if (file.is_open()) {
-            while (!file.eof()) {
-                getline(file, line);
-                vector<string> splittedData = split(line);
-                if (splittedData.size() == 5) {
-                    Eagle* e = new Eagle(splittedData[0], stoi(splittedData[1]), stod(splittedData[2]), boolParse(splittedData[3]), boolParse(splittedData[4]));
-                    eagleVector.push_back(e);
-                }
-                splittedData.clear();
+        if (!file.is_open())
+            throw exception();
 
-
-
+        while (!file.eof()) {
+            getline(file, line);
+            vector<string> splittedData = split(line);
+            if (splittedData.size() == 5) {
+                Eagle* e = new Eagle(splittedData[0], stoi(splittedData[1]), stod(splittedData[2]), boolParse(splittedData[3]), boolParse(splittedData[4]));
+                eagleVector.push_back(e);
             }
-            file.close();
+            splittedData.clear();
 
-            sortVector(eagleVector);
-
-            for (Eagle* e : eagleVector)
-                e->printDeatils();
         }
-        else
-            //cout << "File couldn't open" << endl;
-            throw "File Error";
+        file.close();
+
+        sortVector(eagleVector);
+
+        for (Eagle* e : eagleVector)
+            e->printDeatils();
+       
+            
     }
     catch (const std::exception& e)
     {
         cout << e.what() << endl;
+        cout << "It's a file error chech your file!!" << endl;
     }
 
 
