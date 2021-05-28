@@ -6,19 +6,19 @@
 #include "Animal.h"
 #include "Eagle.h"
 
+using namespace std;
+
+
 //split method is created return type is a vector<string>
 vector<string> split( string line){
-    //"abc,bcd,def"
     int size = line.length(),begin=0;
   
     vector<string> splitted;
-    for (int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++)
         if(line[i]==','){
             splitted.push_back(line.substr(begin, i - begin));
             begin = i + 1;
         }
-
-    }
 
     splitted.push_back(line.substr(begin, size-begin));
 
@@ -27,26 +27,20 @@ vector<string> split( string line){
 
 //boolean parser
 bool boolParse(string input) {
-    if (input._Equal("true"))
-        return true;
-    else
-        return false;
+    return input._Equal("true");
+   
 }
 
 //sorting vector
 void sortVector(vector<Eagle*> &vectorEagle) {
-    Eagle* temp;
-    for (int i = 0; i < vectorEagle.size(); i++) {
-        for (int j = 0; j < vectorEagle.size(); j++) {
-            if (*vectorEagle[i] < *vectorEagle[j]) {
+    for (int i = 0; i < vectorEagle.size(); i++) 
+        for (int j = 0; j < vectorEagle.size(); j++) 
+            if (*vectorEagle[i] < *vectorEagle[j]) 
                 swap(vectorEagle[i], vectorEagle[j]);
 
-            }
-        }
-    }
 }
 
-using namespace std;
+
 
 int main()
 {
@@ -65,30 +59,43 @@ int main()
 
     //File operations has begun
     string line;
-    ifstream file;
-    file.open("input.txt");
-    if (file.is_open()) {
-        while (!file.eof()) {
-            getline(file, line);
-            vector<string> splittedData = split(line);
-            if (splittedData.size() == 5) {
-                Eagle* e = new Eagle(splittedData[0], stoi(splittedData[1]), stod(splittedData[2]), boolParse(splittedData[3]), boolParse(splittedData[4]));
-                eagleVector.push_back(e);
+
+
+    try
+    {
+        ifstream file;
+        file.open("input.txt");
+        if (file.is_open()) {
+            while (!file.eof()) {
+                getline(file, line);
+                vector<string> splittedData = split(line);
+                if (splittedData.size() == 5) {
+                    Eagle* e = new Eagle(splittedData[0], stoi(splittedData[1]), stod(splittedData[2]), boolParse(splittedData[3]), boolParse(splittedData[4]));
+                    eagleVector.push_back(e);
+                }
+                splittedData.clear();
+
+
+
             }
-            splittedData.clear();
+            file.close();
 
-            
+            sortVector(eagleVector);
 
+            for (Eagle* e : eagleVector)
+                e->printDeatils();
         }
-        file.close();
-
-        sortVector(eagleVector);
-       
-        for (Eagle* e : eagleVector)
-            e->printDeatils();
+        else
+            //cout << "File couldn't open" << endl;
+            throw "File Error";
     }
-    else
-        cout << "File couldn't open" << endl;
+    catch (const std::exception& e)
+    {
+        cout << e.what() << endl;
+    }
+
+
+   
     
     
 
