@@ -46,13 +46,13 @@ int main()
 {
     //8. Main function will ask user to enter an integer number. And according to this number your program will create an array with type of subclass dynamically.
     //Note: This is array never used.
-     /*
+     
     int sizeArray;
     cout << "Enter the size of the Array" << endl;
     cin >> sizeArray;
 
     Eagle* eagleArray = new Eagle[sizeArray];
-    */
+    
 
     //Vector created 
     vector<Eagle*> eagleVector;
