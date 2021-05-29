@@ -52,7 +52,7 @@ int main()
     cin >> sizeArray;
 
     Eagle* eagleArray = new Eagle[sizeArray];
-    cout << "That's all with the array :)" << endl;
+    cout << "That's all with the array :)\n" << endl;
 
     //Vector created 
     vector<Eagle*> eagleVector;
