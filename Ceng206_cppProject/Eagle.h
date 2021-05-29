@@ -40,4 +40,4 @@ class Eagle : public Animal
 		bool isFlying;
 };
 
-#endif;
+#endif
