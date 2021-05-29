@@ -12,7 +12,7 @@ Eagle::Eagle() {
 	setAge(1);
 	setWeight(1);
 	setIsPet(true);
-	isFlying = true;
+	this->isFlying = true;
 }
 
 Eagle::Eagle(string nameP, int ageP, double weightP, bool isPetP, bool isFlyingP) {
@@ -20,17 +20,17 @@ Eagle::Eagle(string nameP, int ageP, double weightP, bool isPetP, bool isFlyingP
 	setAge(ageP);
 	setWeight(weightP);
 	setIsPet(isPetP);
-	isFlying = isFlyingP;
+	this->isFlying = isFlyingP;
 }
 
 Eagle :: ~Eagle(){};
 
 void Eagle::setIsFlying(bool isFlyingP) {
-	isFlying = isFlyingP;
+	this->isFlying = isFlyingP;
 }
 
 bool Eagle::getisFlying() {
-	return isFlying;
+	return this->isFlying;
 }
 
 void Eagle::makeSound(){

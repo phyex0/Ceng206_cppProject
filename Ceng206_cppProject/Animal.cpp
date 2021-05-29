@@ -6,51 +6,51 @@
 using namespace std;
 
 Animal::Animal() {
-	name = "Animal";
-	age = 0;
-	weight = 0;
-	isPet = true;
+	this->name = "Animal";
+	this->age = 0;
+	this->weight = 0;
+	this->isPet = true;
 }
 
 Animal::Animal(string nameP, int ageP,double weightP,bool isPetP){
-	name = nameP;
-	age = ageP;
-	weight = weightP;
-	isPet = isPetP;	
+	this->name = nameP;
+	this->age = ageP;
+	this->weight = weightP;
+	this->isPet = isPetP;
 }
 
 Animal :: ~Animal(){}
 
 void Animal::setName(string nameP) {
-	name = nameP;
+	this->name = nameP;
 }
 
 void Animal::setAge(int ageP) {
-	age = ageP;
+	this->age = ageP;
 }
 
 void Animal::setWeight(double weightP) {
-	weight = weightP;
+	this->weight = weightP;
 }
 
 void Animal::setIsPet(bool isPetP) {
-	isPet = isPetP;
+	this->isPet = isPetP;
 }
 
 string Animal::getName() {
-	return name;
+	return this->name;
 }
 
 int Animal::getAge() {
-	return age;
+	return this->age;
 }
 
 double Animal::getWeight() {
-	return weight;
+	return this->weight;
 }
 
 bool Animal::getIsPet() {
-	return isPet;
+	return this->isPet;
 }
 
 void Animal::makeSound() {
